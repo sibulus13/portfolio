@@ -9,8 +9,16 @@ export default function Home(props) {
   console.log(props);
   return (
     <div className="">
-      <RowContainer title="Latest Adventures" posts={props.adventurePosts} seeMore='/Adventures'/>
-      <RowContainer title="Latest Projects" posts={props.showcasePosts} seeMore='/Projects'/>
+      <RowContainer
+        title="Latest Adventures"
+        posts={props.adventurePosts}
+        seeMore="/Adventures"
+      />
+      <RowContainer
+        title="Latest Projects"
+        posts={props.showcasePosts}
+        seeMore="/Projects"
+      />
     </div>
   );
 }
@@ -23,7 +31,10 @@ async function getPostContent(type: string) {
   );
   // sort articles by reverse chronological date
   articles = articles.sort((a, b) => {
-    return new Date(b.frontmatter.date) - new Date(a.frontmatter.date);
+    return (
+      new Date(b.frontmatter.date).valueOf() -
+      new Date(a.frontmatter.date).valueOf()
+    );
   });
   return articles;
 }

@@ -1,0 +1,36 @@
+---
+title: Py Video Scraper Extension
+date: "June 00, 2022"
+description: Youtube Playlist Downloader
+thumbnailUrl: null
+tags: ["Py", "Scraper"]
+published: true
+# carousel_dir:
+
+---
+
+import Image from "next/image";
+import * as styles from "../pages/posts/slug.module.css";
+
+<div>
+  <div>
+    ### Project Workflow
+    1. Find playlist of Youtube videos to download
+    2. Fetch playlist video links in CSV format
+    3. Run script, Python function flow:
+        * Create download folder in specified directory
+        * Download all video urls from playlist
+    4. Congrats! You just got yourself a bunch of online videos!
+    </div>
+  
+  ---
+
+  Digital media is a core part of my every day life, and I intended for it to remain that way while journeying on my summer road trip through two provinces (BC > AB).
+  As my foresight is 2020, I began to research ways to provide offline digital media consumption due to my rationing of purchased data. 
+  While Youtube Premium and some other subscription services attracted my attention, their monthly payments turned me away.
+  From older torrenting days, I knew of the existence of free online resources that can help download certain media, and upon further research I discovered [Pytube](https://pytube.io/en/latest/): A Pythonic library for downloading YouTube videos. 
+  Having some Python knowledge, I quickly implemented a prototype that can download a public Youtube video using the link provided. But why stop there? 
+  There is no limitation to convenience, as I quickly found a [website](http://www.williamsportwebdeveloper.com/FavBackUp.aspx) that can provide the links of every video in a playlist, thanks @Williamsport Web Developer!
+  All thats left is to throw together a little quick and dirty Python magic and voila: a video playlist downloader is born!
+  Check out the script for yourself @ [Py Vid Scraper](https://github.com/sibulus13/Scraper/blob/master/vidScraper/vidScraper.py)!
+</div>

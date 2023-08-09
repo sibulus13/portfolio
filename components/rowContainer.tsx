@@ -1,5 +1,4 @@
 import PostItem from "./postItem";
-import Link from "next/link";
 export default function RowContainer(props: any) {
   const showSeeMore = props.posts.length > 3;
   return (
@@ -14,8 +13,9 @@ export default function RowContainer(props: any) {
       </div>
       {showSeeMore && (
         <div className="text-right pr-4 font-semibold">
-          {/* TODO implement other main pages */}
-          <button onClick={() => log(props.seeMore)}>See More</button>
+          <button onClick={() => log(props.seeMore)}>
+            <a>See More</a>
+          </button>
         </div>
       )}
     </div>

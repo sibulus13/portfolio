@@ -17,7 +17,7 @@ export default function PostItem(post: any) {
           />
         </div>
       )}
-      {!hasImg && <div className="h-60 col-span-3" />}
+      {!hasImg && <div className="h-64 col-span-3" />}
       <div className="col-span-2 text-xl font-semibold pl-2">
         {post.frontmatter.title}
       </div>

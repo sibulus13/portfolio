@@ -13,6 +13,7 @@ export default function PostItem(post: any) {
             }}
             fill
             alt="img"
+            sizes="100%"
             className="p-2"
           />
         </div>

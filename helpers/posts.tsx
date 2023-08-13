@@ -52,10 +52,18 @@ export async function getArticleFromSlug(slug) {
 }
 
 // returns the title portion of path
-export function get_image_title(img_props) {
+export function get_image_title(img_props: any) {
   let title = img_props.src.split("/").slice(-1)[0];
   title = title.split(".").slice(-2)[0];
   return title;
+}
+
+// grabs name portion of url.
+export function carousel_caption(url: string) {
+  let name = url.split(".")[0]
+  name = name.split('/')[name.split('/').length - 1]
+  // console.log(name)
+  return name
 }
 
 export const components = {

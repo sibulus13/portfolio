@@ -10,6 +10,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {
   getPostsFileNames,
   getArticleFromSlug,
+  carousel_caption,
   components,
 } from "../../helpers/posts";
 
@@ -18,8 +19,47 @@ export default function Post(props: any) {
   let carousel = props.carousel;
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div>
+      {/* Header Info */}
+      <div>
+        <div> {post.frontmatter.date} </div>
+        <h1> {post.frontmatter.title} </h1>
+        <h2> {post.frontmatter.description} </h2>
+      </div>
+      {/* Carousel */}
+      <div>
+        {carousel.length > 0 && (
+          <div className="w-1/3 max-h-auto m-auto">
+            <Carousel
+              axis="horizontal"
+              //   autoPlay={true}
+              centerMode={true}
+              centerSlidePercentage={70}
+              infiniteLoop={true}
+              interval={5000}
+              showIndicators={false}
+              stopOnHover={true}
+            >
+              {carousel.map((url: string) => (
+                <div className="flex flex-col">
+                  <div className="">
+                    <Image
+                      src={url}
+                      height={200}
+                      width={200}
+                      alt={carousel_caption(url)}
+                      className="max-h-96"
+                    ></Image>
+                  </div>
+                  <p className="">{carousel_caption(url)}</p>
+                </div>
+              ))}
+            </Carousel>
+          </div>
+        )}
+      </div>
       <hr className=""></hr>
+      {/* MDX Content */}
       <div>
         <MDXRemote {...post.source} components={components} />
       </div>

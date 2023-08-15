@@ -10,7 +10,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import {
   getPostsFileNames,
   getArticleFromSlug,
-  carousel_caption,
+  alt_caption,
   components,
 } from "../../helpers/posts";
 
@@ -47,11 +47,11 @@ export default function Post(props: any) {
                       src={url}
                       height={200}
                       width={200}
-                      alt={carousel_caption(url)}
+                      alt={alt_caption(url)}
                       className="max-h-96"
                     ></Image>
                   </div>
-                  <p className="">{carousel_caption(url)}</p>
+                  <p className="">{alt_caption(url)}</p>
                 </div>
               ))}
             </Carousel>

@@ -59,7 +59,7 @@ export function get_image_title(img_props: any) {
 }
 
 // grabs name portion of url.
-export function carousel_caption(url: string) {
+export function alt_caption(url: string) {
   let name = url.split(".")[0]
   name = name.split('/')[name.split('/').length - 1]
   // console.log(name)

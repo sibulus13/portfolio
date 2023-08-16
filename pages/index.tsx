@@ -6,10 +6,6 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 
 export default function Home(props) {
-  {
-    /* Change layout with custom descriptor, aside img, and content based on About Me, Project, Adventure pressed */
-  }
-  const showIcon = false;
   const [which, setWhich] = useState("About Me");
   const [showNav, setShowNav] = useState(false);
 
@@ -26,40 +22,38 @@ export default function Home(props) {
       default:
         break;
     }
-    console.log(which);
   }
 
+  const navItems = [
+    {
+      name: "About Me",
+      onClick: () => chooseContent("About Me"),
+      disabled: which === "About Me",
+    },
+    {
+      name: "Project",
+      onClick: () => chooseContent("Project"),
+      disabled: which === "Project",
+    },
+    {
+      name: "Adventure",
+      onClick: () => chooseContent("Adventure"),
+      disabled: which === "Adventure",
+    },
+  ];
+
   return (
-    <div className="flex flex-col justify-center h-screen items-center m-10">
+    <div className="flex flex-col justify-center h-screen w-screen items-center px-20">
       {/* // Navigation Bar */}
-      {showNav && (
-        <div>
-          <div className="flex justify-center">
-            {/* For fabicon */}
-            <div className="">
-              {showIcon && <div>黄</div>}
-              {/* Nav Links*/}
-            </div>
-            <nav className="flex gap-x-4">
-              <button onClick={() => chooseContent("About Me")}>
-                About Me
-              </button>
-              <button onClick={() => chooseContent("Project")}>Project</button>
-              <button onClick={() => chooseContent("Adventure")}>
-                Adventure
-              </button>
-            </nav>
-          </div>
-        </div>
-      )}
+      {showNav && <NavBar items={navItems}></NavBar>}
       {/* Hero Section */}
       <div
         className={`flex w-full ${
-          showNav ? "h-1/2" : "h-full items-center justify-center"
+          showNav ? "h-max pb-6" : "h-full items-center justify-center"
         }`}
       >
         {/* Hero Intro Text */}
-        <div className={`text-6xl ${showNav ? "ml-14 w-1/2 h-1/2" : ""}`}>
+        <div className={`text-6xl ${showNav ? "w-1/2 h-1/2" : ""}`}>
           <div>Hi,</div>
           <div>
             I'm Michael
@@ -69,15 +63,13 @@ export default function Home(props) {
           {showNav && (
             <div>
               a<span>{description[which].title}</span>
-              {/* Breakline with a border */}
-              <br className="border-bottom" />
               <h2 className="pt-4">{description[which].description}</h2>
             </div>
           )}
         </div>
         {/* Hero Image */}
         {showNav && (
-          <div className="w-1/2 relative">
+          <div className="w-1/2 relative m-4">
             <Image
               src={description[which].img}
               alt={alt_caption(description[which].img)}
@@ -87,6 +79,7 @@ export default function Home(props) {
           </div>
         )}
       </div>
+      {/* Learn More About me Call to Action*/}
       {!showNav && (
         <div>
           <button className="pt-10" onClick={() => setShowNav(true)}>
@@ -96,10 +89,31 @@ export default function Home(props) {
       )}
       {/* Bottom Dynamic Content */}
       {showNav && (
-        <div className="h-1/2 w-full">
+        <div className="h-1/2 pt-6 flex w-full border-t-2">
           {which === "About Me" && (
-            <div>
-              <div>Insert About me stuff here</div>
+            <div className="text-2xl px-20 h-full">
+              <div className="h-full">
+                {/* talk about experience and recent projects */}
+                With over 3 years of industry software development experience in
+                a variety of industries such as Agri-Tech, Robotics, and
+                Alternative energy utilizing an even larger spread of
+                technologies, I consider myself a Jack of All Trades who knows
+                just enough to understand that I have so much more to learn.
+                <br></br>
+                <br></br>
+                {/* Thats a lot of self references...         */}I am currently
+                in the process of improving my Full Stack Developement skills
+                while exploring new ways to apply my knowledge of Control System
+                Design, Machine Learning, and Project Management to
+                exponentialize my impact on the world.
+              </div>
+              {/* Call to action to check out projects and in depth about me */}
+              <div className="flex justify-around mb-40 h-fit">
+                {/* <button>&gt; Learn more about me</button> */}
+                <button onClick={() => chooseContent("Project")}>
+                  &gt; Check out my latest projects
+                </button>
+              </div>
             </div>
           )}
           {which === "Project" && (

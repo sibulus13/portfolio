@@ -92,8 +92,8 @@ export default function Home(props) {
         <div className="h-1/2 pt-6 flex w-full border-t-2">
           {which === "About Me" && (
             <div className="text-2xl h-full">
-              <div className="text-3xl pb-6">Who I am</div>
-              <div className="px-20 h-auto">
+              <div className="text-3xl pb-6 h-content">Who I am</div>
+              <div className="px-20 h-max">
                 {/* talk about experience and recent projects */}
                 With over 3 years of industry software development experience in
                 a variety of industries such as Agri-Tech, Robotics, and
@@ -108,8 +108,9 @@ export default function Home(props) {
                 Design, Machine Learning, and Project Management to
                 exponentialize my impact on the world.
               </div>
+
               {/* Call to action to check out projects and in depth about me */}
-              <div className="flex justify-around mb-40 h-fit">
+              <div className="flex justify-around py-20">
                 {/* <button>&gt; Learn more about me</button> */}
                 <button onClick={() => chooseContent("Project")}>
                   &gt; Check out my latest projects

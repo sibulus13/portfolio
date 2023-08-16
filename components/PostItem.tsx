@@ -16,6 +16,7 @@ export default function PostItem({ post }) {
                   objectFit: "contain",
                 }}
                 fill
+                sizes="100%"
                 alt={alt_caption(post.frontmatter.thumbnailUrl)}
                 className="p-2 rounded-xl"
               />

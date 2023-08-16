@@ -53,7 +53,7 @@ export default function Home(props) {
         }`}
       >
         {/* Hero Intro Text */}
-        <div className={`text-6xl ${showNav ? "w-1/2 h-1/2" : ""}`}>
+        <div className={`text-6xl ${showNav ? "w-2/3 h-1/2" : ""}`}>
           <div>Hi,</div>
           <div>
             I'm Michael
@@ -69,7 +69,7 @@ export default function Home(props) {
         </div>
         {/* Hero Image */}
         {showNav && (
-          <div className="w-1/2 relative m-4">
+          <div className="w-1/3 relative">
             <Image
               src={description[which].img}
               alt={alt_caption(description[which].img)}
@@ -91,8 +91,9 @@ export default function Home(props) {
       {showNav && (
         <div className="h-1/2 pt-6 flex w-full border-t-2">
           {which === "About Me" && (
-            <div className="text-2xl px-20 h-full">
-              <div className="h-full">
+            <div className="text-2xl h-full">
+              <div className="text-3xl pb-6">Who I am</div>
+              <div className="px-20 h-auto">
                 {/* talk about experience and recent projects */}
                 With over 3 years of industry software development experience in
                 a variety of industries such as Agri-Tech, Robotics, and

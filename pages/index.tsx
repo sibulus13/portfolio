@@ -75,7 +75,7 @@ export default function Home(props) {
               alt={alt_caption(description[which].img)}
               fill
               sizes="100%"
-              objectFit="contain"
+              style={{ objectFit: "contain" }}
             ></Image>
           </div>
         )}

@@ -13,6 +13,7 @@ export default function NavBar(props) {
         <nav className="flex gap-x-4">
           {items.map((item, index) => (
             <button
+              key={index}
               onClick={item.onClick}
               disabled={item.disabled}
               className={`${item.disabled ? "border-b-4" : ""}`}

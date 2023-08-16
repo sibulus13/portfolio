@@ -1,6 +1,6 @@
 import PostItem from "./PostItem";
 
-export default function RowContainer(props: any) {
+export default function PostRow(props: any) {
   const showSeeMore = props.posts.length > 3 && false;
 
   return (
@@ -13,17 +13,17 @@ export default function RowContainer(props: any) {
           </div>
         ))}
       </div>
-      {/* {showSeeMore && (
+      {showSeeMore && (
         <div className="text-right pr-4 font-semibold">
           <button onClick={() => log(props.seeMore)}>
             <a>See More</a>
           </button>
         </div>
-      )} */}
+      )}
     </div>
   );
 }
 
-// function log(item: any) {
-//   console.log(item);
-// }
+function log(item: any) {
+  console.log(item);
+}

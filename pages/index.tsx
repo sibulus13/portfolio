@@ -74,6 +74,7 @@ export default function Home(props) {
               src={description[which].img}
               alt={alt_caption(description[which].img)}
               fill
+              sizes="100%"
               objectFit="contain"
             ></Image>
           </div>

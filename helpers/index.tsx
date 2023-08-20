@@ -2,12 +2,12 @@ export const description = {
   Project: {
     title: " Content Creator",
     img: "/profile/bike_pic.jpg",
-    description: "who loves to document his experiences in order to fail forward faster.",
+    description: "who document his experiences in order to fail forward faster.",
   },
   Adventure: {
-    title: "n Adrenaline Enthusiast",
+    title: "n Adrenaline Junkie",
     img: "/profile/me@mtNorquay.jpg",
-    description: "with a need for speed and a drive to conquer new heights.",
+    description: "with the need for speed and new heights.",
   },
   "About Me": {
     title: " Software Engineer",

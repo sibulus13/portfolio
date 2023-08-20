@@ -4,7 +4,7 @@ export default function NavBar(props) {
   const items = props.items;
   return (
     <div>
-      <div className="flex justify-center p-4">
+      <div className="flex justify-center p-2">
         {/* For fabicon */}
         <div className="">
           {showIcon && <div>黄</div>}

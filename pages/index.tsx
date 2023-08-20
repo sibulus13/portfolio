@@ -1,9 +1,11 @@
-import PostRow from "../components/PostRow";
+import PostContainer from "../components/post/PostContainer";
 import NavBar from "../components/NavBar";
 import { getPostContent, alt_caption } from "../helpers/posts";
 import { description } from "../helpers/index";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import AboutMe from "../components/index/AboutMe";
+import BottomSwitcher from "../components/index/BottomSwitcher";
 
 export default function Home(props) {
   const [which, setWhich] = useState("About Me");
@@ -42,34 +44,60 @@ export default function Home(props) {
     },
   ];
 
+  const bottomSwitcherProps = {
+    "About Me": <AboutMe onClick={() => chooseContent("Project")}></AboutMe>,
+    Project: (
+      <PostContainer
+        title="Latest Projects"
+        dir="showcase"
+        posts={props.showcasePosts}
+        seeMore="/Projects"
+      />
+    ),
+    Adventure: (
+      <PostContainer
+        title="Latest Adventures"
+        dir="adventure"
+        posts={props.adventurePosts}
+        seeMore="/Adventures"
+      />
+    ),
+  };
+
   return (
-    <div className="flex flex-col justify-center h-screen w-screen items-center px-20">
+    <div
+      className={`flex flex-col px-4 w-screen h-screen ${showNav ? "" : ""}`}
+    >
       {/* // Navigation Bar */}
       {showNav && <NavBar items={navItems}></NavBar>}
       {/* Hero Section */}
       <div
         className={`flex w-full ${
-          showNav ? "h-max pb-6" : "h-full items-center justify-center"
+          showNav ? "h-max pb-4" : "h-full items-center justify-center"
         }`}
       >
         {/* Hero Intro Text */}
-        <div className={`text-6xl ${showNav ? "w-2/3 h-1/2" : ""}`}>
-          <div>Hi,</div>
-          <div>
-            I'm Michael
-            {showNav && <span>,</span>}
-          </div>
+        <div className={`text-6xl ${showNav ? "w-1/2 h-1/2" : ""}`}>
+          {!showNav && (
+            <div>
+              <div>Hi,</div>
+              <div>
+                I'm Michael
+                {showNav && <span>,</span>}
+              </div>
+            </div>
+          )}
 
           {showNav && (
-            <div>
-              a<span>{description[which].title}</span>
-              <h2 className="pt-4">{description[which].description}</h2>
-            </div>
+            <h1>
+              As a<span>{description[which].title}</span>
+              <h3 className="pt-4 pr-2">{description[which].description}</h3>
+            </h1>
           )}
         </div>
         {/* Hero Image */}
         {showNav && (
-          <div className="w-1/3 relative">
+          <div className="w-1/2 relative">
             <Image
               src={description[which].img}
               alt={alt_caption(description[which].img)}
@@ -82,61 +110,17 @@ export default function Home(props) {
       </div>
       {/* Learn More About me Call to Action*/}
       {!showNav && (
-        <div>
-          <button className="pt-10" onClick={() => setShowNav(true)}>
-            Learn more about me
-          </button>
-        </div>
+        <button className="pb-6" onClick={() => setShowNav(true)}>
+          Learn more about me
+        </button>
       )}
-      {/* Bottom Dynamic Content */}
-      {showNav && (
-        <div className="h-1/2 pt-6 flex w-full border-t-2">
-          {which === "About Me" && (
-            <div className="text-2xl h-full">
-              <div className="text-3xl pb-6 h-content">Who I am</div>
-              <div className="px-20 h-max">
-                {/* talk about experience and recent projects */}
-                With over 3 years of industry software development experience in
-                a variety of industries such as Agri-Tech, Robotics, and
-                Alternative energy utilizing an even larger spread of
-                technologies, I consider myself a Jack of All Trades who knows
-                just enough to understand that I have so much more to learn.
-                <br></br>
-                <br></br>
-                {/* Thats a lot of self references...         */}I am currently
-                in the process of improving my Full Stack Developement skills
-                while exploring new ways to apply my knowledge of Control System
-                Design, Machine Learning, and Project Management to
-                exponentialize my impact on the world.
-              </div>
 
-              {/* Call to action to check out projects and in depth about me */}
-              <div className="flex justify-around py-20">
-                {/* <button>&gt; Learn more about me</button> */}
-                <button onClick={() => chooseContent("Project")}>
-                  &gt; Check out my latest projects
-                </button>
-              </div>
-            </div>
-          )}
-          {which === "Project" && (
-            <PostRow
-              title="Latest Projects"
-              dir="showcase"
-              posts={props.showcasePosts}
-              seeMore="/Projects"
-            />
-          )}
-          {which === "Adventure" && (
-            <PostRow
-              title="Latest Adventures"
-              dir="adventure"
-              posts={props.adventurePosts}
-              seeMore="/Adventures"
-            />
-          )}
-        </div>
-      )}
+      {/* Bottom Dynamic Content */}
+        <BottomSwitcher
+          showNav={showNav}
+          components={bottomSwitcherProps}
+          which={which}
+        ></BottomSwitcher>
     </div>
   );
 }

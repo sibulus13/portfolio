@@ -73,7 +73,7 @@ export default function Home(props) {
       {/* Hero Section */}
       <div
         className={`flex w-full ${
-          showNav ? "h-max pb-4" : "h-full items-center justify-center"
+          showNav ? "h-1/2 pb-4" : "h-full items-center justify-center"
         }`}
       >
         {/* Hero Intro Text */}
@@ -113,7 +113,7 @@ export default function Home(props) {
 
       {/* Bottom Dynamic Content */}
       <BottomSwitcher
-        className="h-full"
+        className="h-1/2"
         showNav={showNav}
         components={bottomSwitcherProps}
         which={which}

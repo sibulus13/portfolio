@@ -1,8 +1,8 @@
 export default function AboutMe(props) {
     const onClick = props.onClick;
   return (
-    <div className="flex flex-col">
-      <h2 className="pb-4">Who I am</h2>
+    <div className="flex flex-col px-2">
+      <h2 className="py-4">Who I am</h2>
       <div className="px-4">
         {/* talk about experience and recent projects */}
         With over 3 years of industry software development experience in a

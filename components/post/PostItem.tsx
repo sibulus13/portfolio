@@ -1,48 +1,47 @@
 import Image from "next/image";
 import { alt_caption } from "../../helpers/posts";
-
+import Link from "next/link";
 export default function PostItem({ post }) {
   const hasImg = post.frontmatter.thumbnailUrl;
   return (
-    <div className="h-full">
-      <a href={post.slug} className="h-full flex-col">
-        {/* Image Container */}
+    <div className="h-full p-2 flex flex-col justify-between">
+      {/* <Link href={post.slug} className="flex-col"> */}
+      {/* Image Container */}
+      <div className="">
         {hasImg && (
-          <div className="">
-            <Image
-              src={post.frontmatter.thumbnailUrl}
-              style={{
-                objectFit: "contain",
-                width: "69%",
-              }}
-              sizes="100vw"
-              width={0}
-              height={0}
-              alt={alt_caption(post.frontmatter.thumbnailUrl)}
-              className="p-2 rounded-xl"
-            />
-          </div>
+          <Image
+            src={post.frontmatter.thumbnailUrl}
+            style={{
+              objectFit: "contain",
+              width: "100%",
+              height: "100%",
+            }}
+            sizes="100vw"
+            width={0}
+            height={0}
+            alt={alt_caption(post.frontmatter.thumbnailUrl)}
+            className="p-2 rounded-3xl border-x-4"
+          />
         )}
-        {/* Text Container */}
-        <div className="">
-          <div className="grid grid-cols-3">
-            {!hasImg && <div className="col-span-3" />}
-            <div className="col-span-2 text-xl font-semibold pl-2">
-              {post.frontmatter.title}
-            </div>
-            <div className="col-span-1 text-right pr-2">
-              {post.frontmatter.date}
-            </div>
-            <div className="col-span-3 px-2">
-              {post.frontmatter.description}
-            </div>
-            <div className="col-span-3 px-2 line-clamp-2">
-              <div>{renderTags(post.frontmatter.tags)}</div>
-            </div>
-            <div />
+      </div>
+      {/* Text Container */}
+      <div className="pb-4">
+        <div className="grid grid-cols-3">
+          {!hasImg && <div className="col-span-3" />}
+          <div className="col-span-2 text-xl font-semibold pl-2">
+            {post.frontmatter.title}
           </div>
+          <div className="col-span-1 text-right pr-2">
+            {post.frontmatter.date}
+          </div>
+          <div className="col-span-3 px-2">{post.frontmatter.description}</div>
+          <div className="col-span-3 px-2 line-clamp-1">
+            <div>{renderTags(post.frontmatter.tags)}</div>
+          </div>
+          <div />
         </div>
-      </a>
+      </div>
+      {/* </Link> */}
     </div>
   );
 }

@@ -5,7 +5,7 @@ export default function PostItem({ post }) {
   const hasImg = post.frontmatter.thumbnailUrl;
   return (
     <div className="h-full">
-      <a href={post.slug}>
+      <a href={post.slug} className="h-full flex-col">
         {/* Image Container */}
         {hasImg && (
           <div className="">
@@ -24,7 +24,7 @@ export default function PostItem({ post }) {
           </div>
         )}
         {/* Text Container */}
-        <div className="justify-center">
+        <div className="">
           <div className="grid grid-cols-3">
             {!hasImg && <div className="col-span-3" />}
             <div className="col-span-2 text-xl font-semibold pl-2">

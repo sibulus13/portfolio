@@ -6,13 +6,13 @@ export default function PostContainer(props: any) {
   const showSeeMore = props.posts.length > 3 && false;
   const numToShow = props.numToShow || 3;
   return (
-    <div className="p-2 h-full flex-col">
+    <div className="px-2 h-full flex-col">
       <h2 className="py-4">{props.title}</h2>
       {/* Mobile Content */}
       <Carousel
         swipeable
         showThumbs={false}
-        className="md:invisible rounded-xl border-4 grow-0"
+        className="md:invisible rounded-xl border-4 h-5/6"
       >
         {props.posts.slice(1, numToShow).map((article: any, index: number) => (
           <div className="" key={index}>

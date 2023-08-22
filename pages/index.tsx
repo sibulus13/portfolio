@@ -8,8 +8,8 @@ import AboutMe from "../components/index/AboutMe";
 import BottomSwitcher from "../components/index/BottomSwitcher";
 
 export default function Home(props) {
-  const [which, setWhich] = useState("About Me");
-  const [showNav, setShowNav] = useState(false);
+  const [which, setWhich] = useState("Adventure");
+  const [showNav, setShowNav] = useState(true);
 
   function chooseContent(which: string) {
     switch (which) {
@@ -89,10 +89,12 @@ export default function Home(props) {
           )}
 
           {showNav && (
-            <h1>
-              As a<span>{description[which].title}</span>
+            <div>
+              <h1>
+                As a<span>{description[which].title}</span>
+              </h1>
               <h3 className="pt-4 pr-2">{description[which].description}</h3>
-            </h1>
+            </div>
           )}
         </div>
         {/* Hero Image */}
@@ -108,19 +110,21 @@ export default function Home(props) {
           </div>
         )}
       </div>
+
+      {/* Bottom Dynamic Content */}
+      <BottomSwitcher
+        className="h-max"
+        showNav={showNav}
+        components={bottomSwitcherProps}
+        which={which}
+      ></BottomSwitcher>
+
       {/* Learn More About me Call to Action*/}
       {!showNav && (
         <button className="pb-6" onClick={() => setShowNav(true)}>
           Learn more about me
         </button>
       )}
-
-      {/* Bottom Dynamic Content */}
-        <BottomSwitcher
-          showNav={showNav}
-          components={bottomSwitcherProps}
-          which={which}
-        ></BottomSwitcher>
     </div>
   );
 }

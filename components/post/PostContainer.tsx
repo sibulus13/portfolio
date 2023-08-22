@@ -7,21 +7,17 @@ export default function PostContainer(props: any) {
   const numToShow = props.numToShow || 3;
   return (
     <div className="">
-      <h2 className="">{props.title}</h2>
+      <h2 className="py-4">{props.title}</h2>
       {/* Mobile Content */}
-      <div className="md:invisible ">
-        <Carousel swipeable className=''>
-          {props.posts
-            .slice(0, numToShow)
-            .map((article: any, index: number) => (
-              <div className="" key={index}>
-                <PostItem post={article} />
-              </div>
-            ))}
-        </Carousel>
-      </div>
+      <Carousel swipeable showThumbs={false} className="md:invisible">
+        {props.posts.slice(1, numToShow).map((article: any, index: number) => (
+          <div className="" key={index}>
+            <PostItem post={article} />
+          </div>
+        ))}
+      </Carousel>
       {/* Desktop Component */}
-      <div className="invisible md:visible">
+      <div className="hidden md:visible">
         <div className="flex flex-row gap-x-20 space-x-10 p-2">
           {props.posts
             .slice(0, numToShow)

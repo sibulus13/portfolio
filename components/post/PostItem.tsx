@@ -4,27 +4,27 @@ import { alt_caption } from "../../helpers/posts";
 export default function PostItem({ post }) {
   const hasImg = post.frontmatter.thumbnailUrl;
   return (
-    <a href={post.slug} className="">
-      <div className="flex flex-col justify-center rounded-xl border-2">
+    <a href={post.slug}>
+      <div className="flex flex-col rounded-xl border-4 h-full">
         {/* Image Container */}
         {hasImg && (
-          <div className="relative m-auto rounded-xl">
+          <div className="">
             <Image
               src={post.frontmatter.thumbnailUrl}
               style={{
                 objectFit: "contain",
+                width: "69%",
               }}
-              // fill
-              // sizes="100vw"
-              width={400}
-              height={400}
+              sizes="100vw"
+              width={0}
+              height={0}
               alt={alt_caption(post.frontmatter.thumbnailUrl)}
-              className="p-2 rounded-xl flex"
+              className="p-2 rounded-xl"
             />
           </div>
         )}
         {/* Text Container */}
-        {/* <div className="grid grid-cols-3">
+        <div className="grid grid-cols-3">
           {!hasImg && <div className="col-span-3" />}
           <div className="col-span-2 text-xl font-semibold pl-2">
             {post.frontmatter.title}
@@ -37,7 +37,7 @@ export default function PostItem({ post }) {
             <div>{renderTags(post.frontmatter.tags)}</div>
           </div>
           <div />
-        </div> */}
+        </div>
       </div>
     </a>
   );

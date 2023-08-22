@@ -6,16 +6,21 @@ export default function PostContainer(props: any) {
   const showSeeMore = props.posts.length > 3 && false;
   const numToShow = props.numToShow || 3;
   return (
-    <div className="">
+    <div className="p-2 h-full flex-col">
       <h2 className="py-4">{props.title}</h2>
       {/* Mobile Content */}
-      <Carousel swipeable showThumbs={false} className="md:invisible">
+      <Carousel
+        swipeable
+        showThumbs={false}
+        className="md:invisible rounded-xl border-4 grow-0"
+      >
         {props.posts.slice(1, numToShow).map((article: any, index: number) => (
           <div className="" key={index}>
             <PostItem post={article} />
           </div>
         ))}
       </Carousel>
+
       {/* Desktop Component */}
       <div className="hidden md:visible">
         <div className="flex flex-row gap-x-20 space-x-10 p-2">

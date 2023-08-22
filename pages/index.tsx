@@ -113,7 +113,7 @@ export default function Home(props) {
 
       {/* Bottom Dynamic Content */}
       <BottomSwitcher
-        className="h-max"
+        className="h-full"
         showNav={showNav}
         components={bottomSwitcherProps}
         which={which}

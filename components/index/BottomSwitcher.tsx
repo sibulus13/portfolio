@@ -4,9 +4,9 @@ export default function BottomSwitcher(props) {
   const components = props.components;
 
   return (
-    <div className="">
+    <div className="h-full">
       {showNav && (
-        <div className="border-t-4">
+        <div className="border-t-4 h-full">
           {components[which]}
         </div>
       )}

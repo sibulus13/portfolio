@@ -33,7 +33,7 @@ export default function PostContainer(props: any) {
 
       {/* Desktop Component */}
       <div className="flex justify-center">
-        <div className="h-1/2 hidden p-2 items-center sm:inline-grid grid-flow-col gap-4 ">
+        <div className="hidden p-2 items-center sm:inline-grid grid-flow-col gap-4 ">
           {props.posts
             .slice(0, numToShow)
             .map((article: any, index: number) => (

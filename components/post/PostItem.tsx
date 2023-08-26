@@ -20,7 +20,7 @@ export default function PostItem({ post }) {
             width={0}
             height={0}
             alt={alt_caption(post.frontmatter.thumbnailUrl)}
-            className="p-2 rounded-3xl border-x-4"
+            className="p-2 rounded-3xl border-x-4 max-h-80"
           />
         )}
       </div>

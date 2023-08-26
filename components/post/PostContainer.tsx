@@ -1,5 +1,5 @@
 import PostItem from "./PostItem";
-import { Carousel } from "react-responsive-carousel";
+// import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 export default function PostContainer(props: any) {
@@ -10,7 +10,7 @@ export default function PostContainer(props: any) {
     numToShow = 1;
   }
   return (
-    <div className="px-2 h-full flex-col">
+    <div className="px-2 flex-col h-full">
       <h2 className="py-4">{props.title}</h2>
       {/* Mobile Carousel (WIP) */}
       {/* <Carousel
@@ -23,20 +23,22 @@ export default function PostContainer(props: any) {
           <PostItem post={article} key={index} />
         ))}
       </Carousel> */}
-      <div className="md:invisible rounded-xl border-4 h-5/6 flex items-center">
-        {props.posts.slice(0, 1).map((article: any, index: number) => (
+
+      {/* Mobile Component */}
+      <div className="sm:hidden rounded-xl border-4 h-5/6 items-center">
+        {props.posts.slice(1, 2).map((article: any, index: number) => (
           <PostItem post={article} key={index} />
         ))}
       </div>
 
       {/* Desktop Component */}
-      <div className="hidden md:visible">
-        <div className="flex flex-row gap-x-20 space-x-10 p-2">
+      <div className="flex justify-center">
+        <div className="h-1/2 hidden p-2 items-center sm:inline-grid grid-flow-col gap-4 ">
           {props.posts
             .slice(0, numToShow)
             .map((article: any, index: number) => (
-              <div className="" key={index}>
-                <PostItem post={article} />
+              <div className="col-span-1 rounded-xl border-4 h-full">
+                <PostItem post={article} key={index} />
               </div>
             ))}
         </div>

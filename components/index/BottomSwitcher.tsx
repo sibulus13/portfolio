@@ -5,11 +5,7 @@ export default function BottomSwitcher(props) {
 
   return (
     <div className="h-full">
-      {showNav && (
-        <div className="border-t-4 h-full">
-          {components[which]}
-        </div>
-      )}
+      {showNav && <div className="border-t-4 h-full">{components[which]}</div>}
     </div>
   );
 }

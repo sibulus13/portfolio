@@ -6,7 +6,7 @@ export default function AboutMe(props) {
       <div className="px-4">
         {/* talk about experience and recent projects */}
         With over 3 years of industry software development experience in a
-        variety of industries such as Agri-Tech, Robotics, and Alternative
+        variety of industries such as Agri-Tech, Robotics, and Clean
         energy utilizing an even larger spread of technologies, I consider
         myself a Jack of All Trades who knows just enough to understand that I
         have so much more to learn.

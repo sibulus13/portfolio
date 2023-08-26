@@ -8,8 +8,8 @@ import AboutMe from "../components/index/AboutMe";
 import BottomSwitcher from "../components/index/BottomSwitcher";
 
 export default function Home(props) {
-  const [which, setWhich] = useState("Adventure");
-  const [showNav, setShowNav] = useState(true);
+  const [which, setWhich] = useState("About Me");
+  const [showNav, setShowNav] = useState(false);
 
   function chooseContent(which: string) {
     switch (which) {
@@ -73,7 +73,7 @@ export default function Home(props) {
       {/* Hero Section */}
       <div
         className={`flex w-full ${
-          showNav ? "pb-4 h-1/2 sm:h-1/3" : "h-full items-center justify-center"
+          showNav ? "pb-4 h-1/2 sm:h-1/3" : "h-screen items-center justify-center"
         }`}
       >
         {/* Hero Intro Text */}

@@ -74,21 +74,18 @@ export const components = {
     </Link>
   ),
   Image: (props) => (
-    <div className="flex flex-col items-center pt-2">
+    <div className="flex flex-col items-center pt-2 px-20">
       <Image
         src={props.src}
         alt={get_image_title(props)}
-        // style={{
-        //   objectFit: "contain",
-        // }}
         width="600"
         height="600"
       />
-      <h6>{get_image_title(props)}</h6>
+      <p className="text-xs">{get_image_title(props)}</p>
     </div>
   ),
   h1: (props) => <h1>{props.children}</h1>,
   h2: (props) => <h2>{props.children}</h2>,
   h3: (props) => <h3>{props.children}</h3>,
-  h6: (props) => <h6>{props.children}</h6>,
+  h6: (props) => <h6 className="">{props.children}</h6>, //captions
 };

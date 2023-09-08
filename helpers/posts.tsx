@@ -74,7 +74,7 @@ export const components = {
     </Link>
   ),
   Image: (props) => (
-    <div className="flex flex-col items-center pt-2 px-20">
+    <div className="flex flex-col items-center pt-6">
       <Image
         src={props.src}
         alt={get_image_title(props)}

@@ -79,7 +79,7 @@ export default function Home(props) {
         }`}
       >
         {/* Hero Intro Text */}
-        <div className={`text-6xl ${showNav ? "w-1/2 h-1/2" : ""}`}>
+        <div className={`text-6xl ${showNav ? "w-1/2 h-1/2 my-auto" : ""}`}>
           {!showNav && (
             <div>
               <div>Hi,</div>
@@ -91,7 +91,7 @@ export default function Home(props) {
           )}
 
           {showNav && (
-            <div className="flex flex-col pt-14">
+            <div className="flex flex-col">
               <h1>
                 As a<span>{description[which].title}</span>
               </h1>

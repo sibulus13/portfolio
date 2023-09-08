@@ -14,12 +14,18 @@ import {
   components,
 } from "../../helpers/posts";
 
+import { useRouter } from "next/router";
+
 export default function Post(props: any) {
   let post = props.post;
   let carousel = props.carousel;
+  const router = useRouter();
 
   return (
-    <div>
+    <div className="w-4/5 pt-6 mx-auto">
+      <button type="button" onClick={() => router.back()}>
+        Go back
+      </button>
       {/* Header Info */}
       <div>
         <div> {post.frontmatter.date} </div>
@@ -29,7 +35,7 @@ export default function Post(props: any) {
       {/* Carousel */}
       <div>
         {carousel.length > 0 && (
-          <div className="w-1/3 max-h-auto m-auto">
+          <div className="max-h-auto m-auto pt-6">
             <Carousel
               axis="horizontal"
               //   autoPlay={true}
@@ -42,13 +48,18 @@ export default function Post(props: any) {
             >
               {carousel.map((url: string) => (
                 <div className="flex flex-col">
-                  <div className="">
+                  <div className="grow flex-auto">
                     <Image
                       src={url}
-                      height={200}
-                      width={200}
                       alt={alt_caption(url)}
-                      className="max-h-96"
+                      style={{
+                        objectFit: "contain",
+                        width: "100%",
+                        height: "100%",
+                      }}
+                      sizes="100vw"
+                      width={0}
+                      height={0}
                     ></Image>
                   </div>
                   <p className="">{alt_caption(url)}</p>
@@ -58,7 +69,7 @@ export default function Post(props: any) {
           </div>
         )}
       </div>
-      <hr className=""></hr>
+      <hr className="pt-6"></hr>
       {/* MDX Content */}
       <div>
         <MDXRemote {...post.source} components={components} />

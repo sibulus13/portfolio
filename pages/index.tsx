@@ -91,7 +91,7 @@ export default function Home(props) {
           )}
 
           {showNav && (
-            <div className="flex flex-col">
+            <div className="flex flex-col pt-14">
               <h1>
                 As a<span>{description[which].title}</span>
               </h1>

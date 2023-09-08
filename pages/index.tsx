@@ -107,7 +107,7 @@ export default function Home(props) {
               alt={alt_caption(description[which].img)}
               fill
               sizes="100%"
-              className="object-contain"
+              className="object-contain rounded-full"
             ></Image>
           </div>
         )}

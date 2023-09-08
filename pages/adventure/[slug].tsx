@@ -22,9 +22,9 @@ export default function Post(props: any) {
   const router = useRouter();
 
   return (
-    <div className="w-4/5 pt-6 mx-auto">
-      <button type="button" onClick={() => router.back()}>
-        Go back
+    <div className="w-4/5 py-6 mx-auto">
+      <button type="button" onClick={() => router.back()} className="px-0">
+        {"<<"}
       </button>
       {/* Header Info */}
       <div>
@@ -35,7 +35,7 @@ export default function Post(props: any) {
       {/* Carousel */}
       <div>
         {carousel.length > 0 && (
-          <div className="max-h-auto m-auto pt-6">
+          <div className="">
             <Carousel
               axis="horizontal"
               //   autoPlay={true}
@@ -47,22 +47,21 @@ export default function Post(props: any) {
               stopOnHover={true}
             >
               {carousel.map((url: string) => (
-                <div className="flex flex-col">
-                  <div className="grow flex-auto">
-                    <Image
-                      src={url}
-                      alt={alt_caption(url)}
-                      style={{
-                        objectFit: "contain",
-                        width: "100%",
-                        height: "100%",
-                      }}
-                      sizes="100vw"
-                      width={0}
-                      height={0}
-                    ></Image>
-                  </div>
-                  <p className="">{alt_caption(url)}</p>
+                <div className="flex flex-col object-cover h-full w-full whitespace-break-spaces">
+                  <Image
+                    className="h-6/7"
+                    src={url}
+                    alt={alt_caption(url)}
+                    style={{
+                      objectFit: "cover",
+                      width: "100%",
+                      height: "100%",
+                    }}
+                    sizes="100vw"
+                    width={0}
+                    height={0}
+                  ></Image>
+                  <p className="h-1/7 ">{alt_caption(url)}</p>
                 </div>
               ))}
             </Carousel>

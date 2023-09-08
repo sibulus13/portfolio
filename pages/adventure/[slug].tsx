@@ -1,8 +1,6 @@
 import fs from "fs";
 import path from "path";
-import matter from "gray-matter";
 import Image from "next/image";
-import Link from "next/link";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import { Carousel } from "react-responsive-carousel";
@@ -23,7 +21,11 @@ export default function Post(props: any) {
 
   return (
     <div className="w-4/5 py-6 mx-auto">
-      <button type="button" onClick={() => router.back()} className="px-0">
+      <button
+        type="button"
+        onClick={() => router.back()}
+        className="px-0"
+      >
         {"<<"}
       </button>
       {/* Header Info */}
